@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 CATEGORY_CHOICE=(
     ('CR','Crud'),
@@ -24,3 +24,38 @@ class Product(models.Model):
     product_image = models.ImageField(upload_to='product')
     def __str__(self):
         return self.title
+
+STATE_CHOICE=(
+    ('KERALA','KERALA'),
+    ('TAMILNADU','TAMILNADU'),
+    ('KARNATAK','KARNATAK'),
+    ('ANDRAPREDEH','ANDRAPREDEH'),
+    ('GUJARATH','GUJARATH'),
+    ('RAJASTHA','RAJASTHA'),
+    ('MAHARASTRA','MAHARASTRA'),
+    ('MADHYAPRESHES','MADHYAPRESHES'),
+    ('UP','UP'),
+    ('BENGOL','BENGOL'),
+    ('GOA','GOA'),
+    ('ARUNACHAL','ARUNACHA'),
+    ('ORISA','ORISA'),
+    ('CHARGAND','CHARGAND'),
+    ('SIKIM','SIKIM'),
+    ('MEGALAYA','MEGALAYA'),
+    ('JAMMU','JAMMU'),
+    ('ORISA','ORISA'),
+    ('HARIYANA','HARIYANA'),
+    ('HIMACHA','HIMACHAL'),
+    ('ASSAM','ASSAM'),
+    ('CHANDIGAND','CHANDIGAND'),
+)
+class customer(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    locality = models.CharField(max_length=200)
+    city = models.CharField(max_length=100)
+    mobile = models.IntegerField(default=0)
+    zipcode = models.IntegerField()
+    state = models.CharField(choices=STATE_CHOICE,max_length=100)
+    def __str__(self):
+        return self.name

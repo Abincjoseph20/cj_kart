@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 from .models import Product
-from . forms import CustomerRegistrationForm
+from . forms import CustomerRegistrationForm,CustomerProfileForm
 from django.contrib import messages
 # Create your views here.
 def base(request):
@@ -38,3 +38,10 @@ class CustomerRegistration(View):
         else:
             messages.warning(request,'Invalid Input Data')
         return render(request, 'mainapp/Registration.html', locals())
+
+class ProfileView(View):
+    def get(self,request):
+        form = CustomerProfileForm()
+        return render(request, 'mainapp/profile.html', locals())
+    def post(self,request):
+        return render(request, 'mainapp/profile.html', locals())

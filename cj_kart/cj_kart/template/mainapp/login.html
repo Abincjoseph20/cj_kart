@@ -10,9 +10,9 @@
             <hr>
             <form action="" method="post" novalidate class="shadow p-5">
                 {% csrf_token %}
-                {% for fm in form %}
-                {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
-                <br>
+                 {% for fm in form %}
+                        {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+                    <br>
                 {% endfor %}
                 <small><a href="{% url 'pswd_reset' %}">Forgot Password ?</a></small>
                 <br>
