@@ -30,21 +30,15 @@
             Products
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">MILK</a></li>
-              <li><a class="dropdown-item" href="#">CURD</a></li>
-              <li><a class="dropdown-item" href="#">MILKSHAKE</a></li>
-              <li><a class="dropdown-item" href="#">LASSI</a></li>
-              <li><a class="dropdown-item" href="#">GHEE</a></li>
-              <li><a class="dropdown-item" href="#">PANEER</a></li>
-              <li><a class="dropdown-item" href="#">CHEESE</a></li>
-              <li><a class="dropdown-item" href="#">ICE-CREAMS</a></li>
+            <li><a class="dropdown-item" href="{% url 'category' 'ML' %}">MILK</a></li>
+              <li><a class="dropdown-item" href="{% url 'category' 'CR' %}">CURD</a></li>
+              <li><a class="dropdown-item" href="{% url 'category' 'MS' %}">MILKSHAKE</a></li>
+              <li><a class="dropdown-item" href="{% url 'category' 'LS' %}">LASSI</a></li>
+              <li><a class="dropdown-item" href="{% url 'category' 'GH' %}">GHEE</a></li>
+              <li><a class="dropdown-item" href="{% url 'category' 'PN' %}">PANEER</a></li>
+              <li><a class="dropdown-item" href="{% url 'category' 'CZ' %}">CHEESE</a></li>
+              <li><a class="dropdown-item" href="{% url 'category' 'IC' %}">ICE-CREAMS</a></li>
           </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About-us</a>
-        </li>
-      <li class="nav-item">
-          <a class="nav-link" href="#">Contact-us</a>
         </li>
       </ul>
       <form class="d-flex" role="search">

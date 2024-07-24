@@ -31,16 +31,75 @@
 {% endblock banner %}
 
 {% block main-content %}
-<div class="continer">
-<h2>diry products</h2>
+<div class="continer text-center bg-secondary">
+
   <div class="card text-center mx-4 my-3" style="width: 18rem; display:inline-block  ">
-    <a href="#"><img src="{% static 'images\product\buffalo-ghee.png' %}" style=" width:200px ; height:200px" ></a>
+    <a href="{% url 'category' 'GH' %}"><img src="{% static 'images\product\buffalo-ghee.png' %}" style=" width:200px ; height:200px" ></a>
       <div class="card-body">
-         <h5 class="card-title"></h5>
+         <h5 class="card-title">Ghee</h5>
         <h5 class="card-text text-muted"></h5>
   </div>
 </div>
 
+
+  <div class="card text-center mx-4 my-3" style="width: 18rem; display:inline-block  ">
+    <a href="{% url 'category' 'ML' %}"><img src="{% static 'images\product\cow-milk.png' %}" style=" width:200px ; height:200px" ></a>
+      <div class="card-body">
+         <h5 class="card-title">Cow-Milk</h5>
+        <h5 class="card-text text-muted"></h5>
+  </div>
+</div>
+
+  <div class="card text-center mx-4 my-3" style="width: 18rem; display:inline-block  ">
+    <a href="{% url 'category' 'CR' %}"><img src="{% static 'images\product\curd-premium.png' %}" style=" width:200px ; height:200px" ></a>
+      <div class="card-body">
+         <h5 class="card-title">Curd</h5>
+        <h5 class="card-text text-muted"></h5>
+  </div>
+</div>
+
+  <div class="card text-center mx-4 my-3" style="width: 18rem; display:inline-block  ">
+    <a href="{% url 'category' 'IC' %}"><img src="{% static 'images\product\icbars.png' %}" style=" width:200px ; height:200px" ></a>
+      <div class="card-body">
+         <h5 class="card-title">Ice-Creams</h5>
+        <h5 class="card-text text-muted"></h5>
+  </div>
+  </div>
+
+
+    <div class="card text-center mx-4 my-3" style="width: 18rem; display:inline-block  ">
+    <a href="{% url 'category' 'MS' %}"><img src="{% static 'images\product\milk-shake-strawberry.png' %}" style=" width:200px ; height:200px" ></a>
+      <div class="card-body">
+         <h5 class="card-title">Milk-shake</h5>
+        <h5 class="card-text text-muted"></h5>
+  </div>
+  </div>
+
+      <div class="card text-center mx-4 my-3" style="width: 18rem; display:inline-block  ">
+    <a href="{% url 'category' 'CZ' %}"><img src="{% static 'images\product\mozzarellacheese.png' %}" style=" width:200px ; height:200px" ></a>
+      <div class="card-body">
+         <h5 class="card-title">Cheese</h5>
+        <h5 class="card-text text-muted"></h5>
+  </div>
+  </div>
+
+      <div class="card text-center mx-4 my-3" style="width: 18rem; display:inline-block  ">
+    <a href="{% url 'category' 'PN' %}"><img src="{% static 'images\product\paneer-fresh.png' %}" style=" width:200px ; height:200px" ></a>
+      <div class="card-body">
+         <h5 class="card-title">Paneer</h5>
+        <h5 class="card-text text-muted"></h5>
+  </div>
+  </div>
+
+      <div class="card text-center mx-4 my-3" style="width: 18rem; display:inline-block  ">
+    <a href="{% url 'category' 'LS' %}"><img src="{% static 'images\product\sweet-lassi.png' %}" style=" width:200px ; height:200px" ></a>
+      <div class="card-body">
+         <h5 class="card-title">Lassi</h5>
+        <h5 class="card-text text-muted"></h5>
+  </div>
+  </div>
+</div>
+</div>
 </div>
 
 {% endblock main-content %}
