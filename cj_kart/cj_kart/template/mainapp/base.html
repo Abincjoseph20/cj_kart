@@ -23,7 +23,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
         </li>
           <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -57,8 +57,8 @@
           <ul class="dropdown-menu" aria-describedby="profileDropdown">
             <li><a class="dropdown-item" href="{% url 'profiles' %}">Profile</a></li>
               <li><a class="dropdown-item" href="#">Order</a></li>
-              <li><a class="dropdown-item" href="#">Change Password</a></li>
-              <li><a class="dropdown-item" href="#">Logout</a></li>
+              <li><a class="dropdown-item" href="{% url 'passwordchange' %}">Change Password</a></li>
+              <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
           </ul>
         </li>
           <li class="nav-item mx-2">
@@ -68,7 +68,7 @@
               <a href="#" class="nav-link tex-white ">wished-item</a>
           </li>
           <li class="nav-item mx-2">
-              <a href="{% url 'signin' %}" class="nav-link tex-white ">Login</a>
+              <a href="{% url 'login' %}" class="nav-link tex-white ">Login</a>
           </li>
           <li class="nav-item mx-2">
               <a href="{% url 'customer-registration' %}" class="nav-link tex-white ">Registrations</a>

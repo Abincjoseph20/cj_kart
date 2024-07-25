@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views import View
 from .models import Product,customer
 from . forms import CustomerRegistrationForm,CustomerProfileForm
 from django.contrib import messages
+from django.contrib.auth import logout
 # Create your views here.
 def base(request):
     return render(request,'mainapp/home.html')
@@ -64,3 +65,29 @@ def Address(request):
     # add is store all data in user and it will iterated in address.html
     add = customer.objects.filter(user=request.user)
     return render(request,'mainapp/address.html',locals())
+
+class AddresUpdate(View):
+    def get(self,request,pk):
+        add = customer.objects.get(pk=pk)
+        form = CustomerProfileForm(instance=add)
+        return render(request, 'mainapp/updateAddress.html', locals())
+    def post(self,request,pk):
+        form = CustomerProfileForm(request.POST)
+        if form.is_valid():
+            add = customer.objects.get(pk=pk)
+            add.name = form.cleaned_data['name']
+            add.locality = form.cleaned_data['locality']
+            add.city = form.cleaned_data['city']
+            add.mobile = form.cleaned_data['mobile']
+            add.zipcode = form.cleaned_data['zipcode']
+            add.state = form.cleaned_data['state']
+            add.save()
+            messages.success(request, "congratulation profile Update Succesfully")
+        else:
+            messages.warning(request, 'Invalid Input Data')
+        return redirect('address')
+
+
+def loggout(request):
+    logout(request)
+    return redirect('login')
