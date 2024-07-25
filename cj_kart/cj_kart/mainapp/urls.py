@@ -21,5 +21,6 @@ urlpatterns = [
     #user profile urls if login success then go to this function
     path('profile/',views.ProfileView.as_view(),name='profiles'),
 
-
+    #for display address
+    path('addres',views.Address,name='address'),
 ]
