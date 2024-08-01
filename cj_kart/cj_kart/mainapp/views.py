@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.views import View
-from .models import Product,customer
+from .models import customer,Products
 from . forms import CustomerRegistrationForm,CustomerProfileForm
 from django.contrib import messages
 from django.contrib.auth import logout
@@ -11,19 +11,19 @@ def base(request):
 #locals() is a built in function to call all the local functions
 class Category(View):
     def get(self,request,val):
-        product = Product.objects.filter(category=val)
-        title = Product.objects.filter(category=val).values('title')
+        product = Products.objects.filter(category=val)
+        title = Products.objects.filter(category=val).values('title')
         return render(request,'mainapp/category.html',locals())
 
 class ProductDetails(View):
     def get(self, request,pk):
-        product = Product.objects.get(pk=pk)
+        product = Products.objects.get(pk=pk)
         return render(request, 'mainapp/productdetais.html', locals())
 
 class CategoryTitle(View):
     def get(self,request,val):
-        product = Product.objects.filter(title=val)
-        title = Product.objects.filter(category=product[0].category).values('title')
+        product = Products.objects.filter(title=val)
+        title = Products.objects.filter(category=product[0].category).values('title')
         return render(request,'mainapp/category.html',locals())
 
 
@@ -91,3 +91,15 @@ class AddresUpdate(View):
 def loggout(request):
     logout(request)
     return redirect('login')
+
+# def addtocart(request):
+#     user = request.user
+#     product_id = request.GET.get('prod_id')
+#     product = Product.objects.get(id=product_id)
+#     Kart(user=user,product=product).save()
+#     return redirect('/cart')
+
+# def showcart(request):
+#     user = request.user
+#     cart = Kart.objects.filter(user=user)
+#     return render(request,'mainapp/addtocart.html',locals())

@@ -13,7 +13,7 @@ CATEGORY_CHOICE=(
 )
 
 
-class Product(models.Model):
+class Products(models.Model):
     title=models.CharField(max_length=150)
     selling_price=models.FloatField()
     discounted_price = models.FloatField()
@@ -22,6 +22,7 @@ class Product(models.Model):
     prodapp= models.TextField(default='')
     category = models.CharField(choices=CATEGORY_CHOICE,max_length=2)
     product_image = models.ImageField(upload_to='product')
+    product_quantity = models.FloatField()
     def __str__(self):
         return self.title
 
@@ -59,3 +60,16 @@ class customer(models.Model):
     state = models.CharField(choices=STATE_CHOICE,max_length=100)
     def __str__(self):
         return self.name
+
+# class Cart(models.Model):
+#     user = models.ForeignKey(User,on_delete=models.CASCADE)
+#     product = models.ForeignKey(Products,on_delete=models.CASCADE)
+#     product_quantity = models.IntegerField(blank=False,null=False)
+#     @property
+#     def total_cost(self):
+#         return self.quantity * self.product.discounted_price
+
+# class Carts(models.Model):
+#     user = models.ForeignKey(User,on_delete=models.CASCADE)
+#     product = models.ForeignKey(Products,on_delete=models.CASCADE)
+#     product_quantity = models.IntegerField(blank=False,null=False)

@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_view
-from .forms import LoginForm,MyPasswordResetForm,MyPasswordChangeForm
+from .forms import LoginForm,MyPasswordResetForm,MyPasswordChangeForm,MySetpasswordform
 urlpatterns = [
 
     path('',views.base,name='home'),
@@ -14,9 +14,6 @@ urlpatterns = [
 
     #LoginView is a built-in function in django for using Login porpus
     path('accounts/login/',auth_view.LoginView.as_view(template_name='mainapp/login.html',authentication_form=LoginForm),name='login'),
-
-    #PasswordResetView is built-in function using password reset or Forgot Password for login time
-    path('password_reset/',auth_view.PasswordResetView.as_view(template_name='mainapp/password_reset.html',form_class=MyPasswordResetForm),name='pswd_reset'),
 
     #user profile urls if login success then go to this function
     path('profile/',views.ProfileView.as_view(),name='profiles'),
@@ -36,5 +33,23 @@ urlpatterns = [
     #auth_view.LogoutView.as_view built  in functionfor logout
     #path('logout',auth_view.LogoutView.as_view(next_page='login'),name='logout'),
     path('logout/', views.loggout, name='logout'),
+
+    # PasswordResetView is built-in function using password reset or Forgot Password for login time
+    path('password_reset/', auth_view.PasswordResetView.as_view(template_name='mainapp/password_reset.html',form_class=MyPasswordResetForm), name='pswd_reset'),
+
+    # PasswordResetDoneView is built-in function using password reset or Forgot Password done for login time
+    path('password_reset/done', auth_view.PasswordResetDoneView.as_view(template_name='mainapp/password_reset_done.html'), name='pswd_reset_done'),
+
+    # PasswordResetConfirmView is built-in function using password reset or Forgot Password done for login time
+    path('password_reset_confirm/<uidb64>/<token>/',auth_view.PasswordResetConfirmView.as_view(template_name='mainapp/password_reset_confirm.html',form_class=MySetpasswordform), name='pswd_reset_confirm'),
+
+
+    # PasswordResetCompleteView is built-in function using password reset or Forgot Password done for login time
+    path('password_reset_complete/',auth_view.PasswordResetCompleteView.as_view(template_name='mainapp/password_reset_compelite.html'),name='pswd_reset_complete'),
+
+    #add to cart
+    # path('add-to-cart/',views.addtocart,name='add_to_cart'),
+
+    # path('cart/',views.showcart,name='show_cart'),
 
 ]
