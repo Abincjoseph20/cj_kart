@@ -92,14 +92,4 @@ def loggout(request):
     logout(request)
     return redirect('login')
 
-# def addtocart(request):
-#     user = request.user
-#     product_id = request.GET.get('prod_id')
-#     product = Product.objects.get(id=product_id)
-#     Kart(user=user,product=product).save()
-#     return redirect('/cart')
 
-# def showcart(request):
-#     user = request.user
-#     cart = Kart.objects.filter(user=user)
-#     return render(request,'mainapp/addtocart.html',locals())

@@ -23,6 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #path('', include('django.contrib.auth.urls')), #if forgot password should use this url must be activate 3:36:24
     path("",include("mainapp.urls")),
-
+    path("cart/",include("carts.urls")),
 ]
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

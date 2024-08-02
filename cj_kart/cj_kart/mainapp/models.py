@@ -12,7 +12,6 @@ CATEGORY_CHOICE=(
     ('IC','Ice-cream'),
 )
 
-
 class Products(models.Model):
     title=models.CharField(max_length=150)
     selling_price=models.FloatField()
@@ -61,15 +60,3 @@ class customer(models.Model):
     def __str__(self):
         return self.name
 
-# class Cart(models.Model):
-#     user = models.ForeignKey(User,on_delete=models.CASCADE)
-#     product = models.ForeignKey(Products,on_delete=models.CASCADE)
-#     product_quantity = models.IntegerField(blank=False,null=False)
-#     @property
-#     def total_cost(self):
-#         return self.quantity * self.product.discounted_price
-
-# class Carts(models.Model):
-#     user = models.ForeignKey(User,on_delete=models.CASCADE)
-#     product = models.ForeignKey(Products,on_delete=models.CASCADE)
-#     product_quantity = models.IntegerField(blank=False,null=False)
