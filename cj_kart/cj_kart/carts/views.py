@@ -13,6 +13,7 @@ def _cart_id(request): #this private function is using to fetch the session id o
         cart = request.session.create()
     return cart
 
+
 def add_to_cart(request,product_id): #to get the Product
     product = Products.objects.get(id=product_id)
     try:
