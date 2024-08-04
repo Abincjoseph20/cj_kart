@@ -1,11 +1,11 @@
 from django.shortcuts import render,redirect
 from mainapp.models import Products
 from .models import Carts,Cart_items
+
 # Create your views here.
 
 
-def Cart_view(request): #this function is for view Cart page
-    return render(request,'mainapp/cart.html')
+
 
 def _cart_id(request): #this private function is using to fetch the session id of a single product
     cart = request.session.session_key
@@ -37,3 +37,21 @@ def add_to_cart(request,product_id): #to get the Product
         )
         cart_item.save()
     return redirect('cart')
+
+
+def Cart_view(request,total=0,quantity=0,cart_items=None):  # this function for view Cart page
+    try:
+        cart = Carts.objects.get(cart_id=_cart_id(request))
+        cart_items = Cart_items.objects.filter(cart=cart,is_active=True)
+        for cart_item in cart_items:
+            total += (cart_item.product.price * cart_items.quantity)
+            quantity += cart_item.quantity
+    except ObjectNotExist:
+        pass
+    
+    contect = {
+        'total':total,
+        'quantity':quantity,
+        'cart_items':cart_items,
+    }
+    return render(request, 'mainapp/cart.html',contect)
