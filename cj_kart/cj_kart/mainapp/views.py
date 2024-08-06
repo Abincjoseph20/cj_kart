@@ -4,9 +4,17 @@ from .models import customer,Products
 from . forms import CustomerRegistrationForm,CustomerProfileForm
 from django.contrib import messages
 from django.contrib.auth import logout
+#from .models import Doctors
 # Create your views here.
 def base(request):
     return render(request,'mainapp/home.html')
+
+def store(request):
+    product={
+        'product':Products.objects.all()
+    }
+    return render(request,'mainapp/store.html',product)
+
 
 #locals() is a built in function to call all the local functions
 class Category(View):

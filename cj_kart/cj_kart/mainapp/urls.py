@@ -5,6 +5,7 @@ from .forms import LoginForm,MyPasswordResetForm,MyPasswordChangeForm,MySetpassw
 urlpatterns = [
 
     path('',views.base,name='home'),
+    path('store/', views.store, name='store'),
     path('categories/<slug:val>',views.Category.as_view(),name="category"),
     path('ProductDetais/<int:pk>/',views.ProductDetails.as_view(),name='Product_detais'),
     path('categories-title/<val>',views.CategoryTitle.as_view(),name="category-title"),
@@ -47,9 +48,5 @@ urlpatterns = [
     # PasswordResetCompleteView is built-in function using password reset or Forgot Password done for login time
     path('password_reset_complete/',auth_view.PasswordResetCompleteView.as_view(template_name='mainapp/password_reset_compelite.html'),name='pswd_reset_complete'),
 
-    #add to cart
-    # path('add-to-cart/',views.addtocart,name='add_to_cart'),
-
-    # path('cart/',views.showcart,name='show_cart'),
 
 ]

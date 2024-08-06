@@ -23,24 +23,27 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           {% if request.user.is_authenticated %}
 
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-        </li>
+          <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+          </li>
           <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Products
+            Category
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{% url 'category' 'ML' %}">MILK</a></li>
+            <li><a class="dropdown-item" href="{% url 'category' 'MK' %}">MILK</a></li>
               <li><a class="dropdown-item" href="{% url 'category' 'CR' %}">CURD</a></li>
               <li><a class="dropdown-item" href="{% url 'category' 'MS' %}">MILKSHAKE</a></li>
               <li><a class="dropdown-item" href="{% url 'category' 'LS' %}">LASSI</a></li>
               <li><a class="dropdown-item" href="{% url 'category' 'GH' %}">GHEE</a></li>
               <li><a class="dropdown-item" href="{% url 'category' 'PN' %}">PANEER</a></li>
               <li><a class="dropdown-item" href="{% url 'category' 'CZ' %}">CHEESE</a></li>
-              <li><a class="dropdown-item" href="{% url 'category' 'IC' %}">ICE-CREAMS</a></li>
+              <li><a class="dropdown-item" href="{% url 'category' 'IH' %}">ICE-CREAMS</a></li>
           </ul>
-        </li>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'store' %}">Store</a>
+          </li>
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -63,7 +66,7 @@
           </ul>
         </li>
           <li class="nav-item mx-2">
-              <a href="#" class="nav-link tex-white ">cart</a>
+              <a href="{% url 'cart' %}" class="nav-link tex-white ">cart</a>
           </li>
           <li class="nav-item mx-2">
               <a href="#" class="nav-link tex-white ">wished-item</a>
