@@ -9,7 +9,7 @@ urlpatterns = [
     path('categories/<slug:val>',views.Category.as_view(),name="category"),
     path('ProductDetais/<int:pk>/',views.ProductDetails.as_view(),name='Product_detais'),
     path('categories-title/<val>',views.CategoryTitle.as_view(),name="category-title"),
-
+    path('search',views.search,name='search'),
     #registrations
     path('registrations',views.CustomerRegistration.as_view(),name="customer-registration"),
 

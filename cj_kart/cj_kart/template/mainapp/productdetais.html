@@ -19,9 +19,9 @@
                 <li>{{product.description}}</li>
             </ul>
             <div class="input-group" style="width:150px">
-                <button class="input-group-text bg-success text-light" id='btnMinus'><i class="fa fa-minus">-</i></button>
-                <input type="text" name="qty" id="txtQty" value="1" class="form-control text-center">
-                <button class="input-group-text bg-success text-dark" id='btnPlus'><i class="fa fa-minus">+</i></button>
+                <a href="{% url 'minus_cart' product.id %}" class="btn btn-success" id='btnMinus'><i class="fa fa-minus">-</i></a>
+                <input type="text" name="qty" id="txtQty" value="{{ cart_item.quantity }}" class="form-control text-center">
+                <a href="{% url 'add_to_cart' product.id %}" class="btn btn-success" id='btnPlus'><i class="fa fa-minus">+</i></a>
             </div>
             <br>
              <form action="/add-to-cart" class="d-inline">
@@ -38,29 +38,4 @@
         </div>
     </div>
 </div>
-    <script>
-        document.addEventListener("DOMContentLoaded",function(event){
-            const btnPlus = document.getElementById("btnPlus");
-            const btnMinus = document.getElementById("btnMinus");
-            const txtQty = document.getElementById("txtQty");
-
-            btnPlus.addEventListener("click",function(){
-                let qty=parseInt(txtQty.value,10);
-                qty=isNaN(qty)?0:qty;
-                if(qty<10){
-                    qty++;
-                    txtQty.value=qty;
-                }
-            });
-
-            btnMinus.addEventListener("click",function(){
-                let qty=parseInt(txtQty.value,10);
-                qty=isNaN(qty)?0:qty;
-                if(qty>1){
-                    qty--;
-                    txtQty.value=qty;
-                }
-            });
-        });
-    </script>
 {% endblock main-content %}

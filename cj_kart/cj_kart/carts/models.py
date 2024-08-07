@@ -1,5 +1,5 @@
 from django.db import models
-from mainapp.models import Products
+from mainapp.models import Product
 # Create your models here.
 
 class Carts(models.Model):
@@ -12,7 +12,7 @@ class Carts(models.Model):
 
 
 class Cart_items(models.Model):
-    product = models.ForeignKey(Products,on_delete=models.CASCADE)
+    product = models.ForeignKey(Product,on_delete=models.CASCADE)
     cart = models.ForeignKey(Carts, on_delete=models.CASCADE)
     quantity = models.IntegerField()
     is_active =models.BooleanField(default=True)
