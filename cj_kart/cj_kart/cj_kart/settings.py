@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mainapp',
     'carts',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -134,5 +135,32 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static')
 ]
+
+#
+# EMAIL_HOST = "smtp.gmail.com"
+# EMAIL_PORT = 587
+# os.getenv['EMAIL_HOST_USER'] = 'abincjoseph77@gmail.com'
+# os.getenv['EMAIL_HOST_PASSWORD'] ='Abin@20022000'
+# os.getenv['DEFAULT_FROM_EMAIL']='abincjoseph77@gmail.com'
+
+
+
+# EMAIL_HOST_USER = os.getenv['EMAIL_HOST_USER'] = 'abincjoseph77@gmail.com'
+# EMAIL_HOST_PASSWORD = os.getenv['EMAIL_HOST_PASSWORD'] ='Abin@20022000'
+# DEFAULT_FROM_EMAIL = os.getenv['DEFAULT_FROM_EMAIL']='abincjoseph77@gmail.com'
+
+# EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+# DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
+
+# export EMAIL_HOST_USER='abincjoseph77@gmail.com'
+# export EMAIL_HOST_PASSWORD='Abin@20022000'
+# export DEFAULT_FROM_EMAIL='abincjoseph77@gmail.com'
+
+
+# EMAIL_HOST_USER = 'abincjoseph77@gmail.com'
+# EMAIL_HOST_PASSWORD = 'Abin@20022000'
+# EMAIL_USE_TLS = True
+# DEFAULT_FROM_EMAIL = 'abincjoseph77@gmail.com'
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"

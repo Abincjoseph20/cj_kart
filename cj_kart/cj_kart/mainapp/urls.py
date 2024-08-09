@@ -8,7 +8,9 @@ urlpatterns = [
     path('store/', views.store, name='store'),
     path('categories/<slug:val>',views.Category.as_view(),name="category"),
     path('ProductDetais/<int:pk>/',views.ProductDetails.as_view(),name='Product_detais'),
+
     path('categories-title/<val>',views.CategoryTitle.as_view(),name="category-title"),
+
     path('search',views.search,name='search'),
     #registrations
     path('registrations',views.CustomerRegistration.as_view(),name="customer-registration"),
@@ -35,18 +37,22 @@ urlpatterns = [
     #path('logout',auth_view.LogoutView.as_view(next_page='login'),name='logout'),
     path('logout/', views.loggout, name='logout'),
 
+
+
+
+
     # PasswordResetView is built-in function using password reset or Forgot Password for login time
     path('password_reset/', auth_view.PasswordResetView.as_view(template_name='mainapp/password_reset.html',form_class=MyPasswordResetForm), name='pswd_reset'),
 
     # PasswordResetDoneView is built-in function using password reset or Forgot Password done for login time
-    path('password_reset/done', auth_view.PasswordResetDoneView.as_view(template_name='mainapp/password_reset_done.html'), name='pswd_reset_done'),
+    path('password_reset_done', auth_view.PasswordResetDoneView.as_view(template_name='mainapp/password_reset_done.html'), name='password_reset_done'),
 
     # PasswordResetConfirmView is built-in function using password reset or Forgot Password done for login time
-    path('password_reset_confirm/<uidb64>/<token>/',auth_view.PasswordResetConfirmView.as_view(template_name='mainapp/password_reset_confirm.html',form_class=MySetpasswordform), name='pswd_reset_confirm'),
-
+    path('password_reset_confirm/<uidb64>/<token>/',auth_view.PasswordResetConfirmView.as_view(template_name='mainapp/password_reset_confirm.html',form_class=MySetpasswordform), name='password_reset_confirm'),
 
     # PasswordResetCompleteView is built-in function using password reset or Forgot Password done for login time
-    path('password_reset_complete/',auth_view.PasswordResetCompleteView.as_view(template_name='mainapp/password_reset_compelite.html'),name='pswd_reset_complete'),
+    path('password_reset_complete/',auth_view.PasswordResetCompleteView.as_view(template_name='mainapp/password_reset_complete.html'),name='password_reset_complete'),
 
+    #path('password_reset/',auth_view.PasswordResetView.as_view(),name='password_reset')
 
 ]
